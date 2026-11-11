@@ -1,0 +1,29 @@
+[PASS] C1 Q-values converge to the closed form 1/(1-γ) = 20
+       final net: mean max Q on states >=60 steps from the end = 20.02 (theory 19.1-20.0); best checkpoint: 20.11 -> it was picked before Q finished propagating; it ranks actions correctly but its values are not yet calibrated
+       t |   x      x_dot   theta   th_dot |  Q(left) Q(right) a | r  target  TD-err
+       0 | +0.027 -0.006 +0.0359 +0.020 |  20.139  20.160  1 | 1  20.178 -0.019
+       1 | +0.027 +0.188 +0.0363 -0.261 |  20.175  20.188  1 | 1  20.182 +0.006
+       2 | +0.031 +0.383 +0.0310 -0.542 |  20.191  20.190  0 | 1  20.175 +0.016
+       3 | +0.039 +0.188 +0.0202 -0.240 |  20.173  20.184  1 | 1  20.182 +0.002
+       4 | +0.042 +0.382 +0.0154 -0.526 |  20.192  20.184  0 | 1  20.174 +0.018
+       5 | +0.050 +0.187 +0.0048 -0.229 |  20.172  20.183  1 | 1  20.190 -0.007
+       6 | +0.054 +0.382 +0.0003 -0.520 |  20.200  20.191  0 | 1  20.174 +0.026
+       7 | +0.061 +0.187 -0.0101 -0.227 |  20.173  20.183  1 | 1  20.211 -0.028
+       8 | +0.065 +0.382 -0.0147 -0.523 |  20.218  20.222  1 | 1  20.253 -0.031
+       9 | +0.073 +0.578 -0.0251 -0.820 |  20.243  20.267  1 | 1  20.195 +0.072
+[FAIL] C6 greedy action pushes the cart toward the falling side
+       push-right when θ+0.3θ̇ > 0.05: 67.1%; push-left when < -0.05: 78.9%
+       abl_base           best-ckpt greedy score  314.9 | mean max Q (last 100 eps) 19.49 | MA100  141.8
+       abl_gamma0.9       best-ckpt greedy score  346.1 | mean max Q (last 100 eps)  9.88 | MA100  134.5
+       abl_short_bootstrap best-ckpt greedy score  385.3 | mean max Q (last 100 eps) 17.45 | MA100   43.7
+       abl_short_terminal best-ckpt greedy score  282.9 | mean max Q (last 100 eps) 16.86 | MA100   42.2
+       abl_no_target      best-ckpt greedy score   37.0 | mean max Q (last 100 eps) 408719.28 | MA100   13.5
+       abl_tiny_replay    best-ckpt greedy score  474.0 | mean max Q (last 100 eps) 16.97 | MA100  129.0
+[PASS] C2 gamma=0.9 halves the Q scale (10 vs 20)
+       mean max Q: gamma 0.95 -> 19.49, gamma 0.9 -> 9.88
+[PASS] C3 treating truncation as terminal lowers Q (direction predicted by a hazard-rate model)
+       50-step limit, mean max Q: bootstrap 16.44 (model 17.01), as-terminal 15.88 (model 13.34); failure rate f=0.0093/0.0103, truncation rate ρ=0.0160. Direction matches; the as-terminal drop is smaller than the model predicts
+[PASS] C4 removing the target network or the replay buffer hurts
+       MA100 at end: base 141.8, no target 13.5, tiny replay 129.0
+
+4/5 checks passed; plots in /nfs/home/qme0129/projects/assignment2/results/cartpole/validation

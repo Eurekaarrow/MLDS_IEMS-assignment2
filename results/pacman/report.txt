@@ -1,0 +1,24 @@
+A.L.E: Arcade Learning Environment (version 0.12.1+8a8fafb)
+[Powered by Stella]
+[PASS] M1 batched preprocessing == provided function
+       300 frames identical; value range [-128, 27]; pixels at -128 (Pac-Man after the contrast step, plus black areas): 163 per frame
+       first 10 steps (greedy):
+       t0: pacman=(80, 103) Q=[1.76 1.75 1.73 1.76 1.75 1.75 1.73 1.73 1.73] a=LEFT r=0
+       t1: pacman=(79, 103) Q=[1.72 1.70 1.69 1.73 1.71 1.72 1.67 1.69 1.69] a=LEFT r=0
+       t2: pacman=(80, 103) Q=[1.83 1.82 1.81 1.84 1.82 1.82 1.78 1.81 1.82] a=LEFT r=0
+       t3: pacman=(80, 103) Q=[1.76 1.77 1.75 1.77 1.74 1.76 1.76 1.75 1.75] a=UP r=0
+       t4: pacman=(80, 103) Q=[1.65 1.66 1.63 1.65 1.63 1.64 1.63 1.62 1.64] a=UP r=0
+       t5: pacman=(79, 103) Q=[1.67 1.66 1.65 1.68 1.66 1.66 1.62 1.65 1.66] a=LEFT r=0
+       t6: pacman=(80, 103) Q=[1.81 1.83 1.80 1.82 1.80 1.81 1.82 1.79 1.80] a=UP r=0
+       t7: pacman=(80, 103) Q=[1.86 1.87 1.85 1.87 1.84 1.86 1.84 1.84 1.85] a=UP r=0
+       t8: pacman=(80, 103) Q=[1.74 1.73 1.72 1.74 1.73 1.73 1.69 1.71 1.72] a=NOOP r=0
+       t9: pacman=(79, 103) Q=[1.81 1.80 1.79 1.82 1.80 1.81 1.77 1.79 1.79] a=LEFT r=0
+[PASS] M3 Q-values are calibrated against Monte-Carlo returns
+       4770 steps: mean Q(s,a) = 15.37, mean MC return = 12.31 (ratio 1.25); corr = 0.58; theoretical cap 1/(1-γ) = 100
+[PASS] M4 max Q drops just before a life is lost
+       18 deaths: mean max Q 5 steps before death = 3.38 vs 20-40 steps before = 11.45
+       Q map: 196 visited cells
+[PASS] M2 snapshot evaluation improves with training
+       ep500: 654±66, ep1000: 626±40, ep1500: 860±77, ep2000: 1612±93, ep2500: 1206±50, ep3000: 1291±48, ep3500: 1638±100, ep4000: 1646±53, ep4500: 1906±115, ep5000: 2051±105, ep5500: 1982±125, ep6000: 1881±97, ep6500: 1888±86 (last = final); corr = 0.90
+
+4/4 checks passed
